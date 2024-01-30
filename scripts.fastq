@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# This is my scripts.fastq.sh script.
+
+# 9.    Unzip the file ERR020236_1.fastq.gz
+# 10.   How many GB is this FASTQ file?
+#           0.19 GB
+# 11.   How many sequences are in this FASTQ file?
+# awk '(NR%4==2)' ERR020236_1.fastq | wc -l
+# 12.   How many sequences have “N”s in it?
+# awk '(NR%4==2)' ERR020236_1.fastq | grep "N" | wc -l
+# 13.   Count the number of “A”s, “T”s, “C”s and “G”s that are in sequence 59?
+
+# Hint: Awk can be used to pull out specific rows. By using the command awk 'NR == 5' for example, we can pull out the 5th row from a file.
+# awk '(NR%4==2)' ERR020236_1.fastq | awk 'NR ==59' | grep -o '[ATCGN]' | sort | uniq -c

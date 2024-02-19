@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This is my midterm script for the FASTA files. 
+
+# This code is to count the length of each FASTA files
+
+grep -v ">" dingo.fasta DK.fasta | awk '{print length}'| wc -l
+
+grep -v ">" DM.fasta | awk '{print length}'| wc -l
+
+grep -v ">" GIANTPANDA.fasta | awk '{print length}'| wc -l
+
+grep -v ">" house_mouse.fasta | awk '{print length}'| wc -l
+
+grep -v ">" humans.fasta | awk '{print length}'| wc -l
+
+grep -v ">" monkey.fasta | awk '{print length}'| wc -l
+
+grep -v ">" pig.fasta | awk '{print length}'| wc -l
+
+grep -v ">" zebra_fish.fasta | awk '{print length}'| wc -l
+
+# this code is to find the nucleotide composition
+
+cat dingo.fasta DM.fasta DK.fasta GIANTPANDA.fasta house_mouse.fasta monkey.fasta humans.fasta pig.fasta zebra_fish.fasta > abcd1_sequences.fasta
+
+# Compare the compositions
+
+cat abcd1_sequences.fasta | grep -v "^>" | tr -d '\n' | fold -w 1 | sort | uniq -c
